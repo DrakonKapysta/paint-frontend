@@ -1,13 +1,11 @@
 import React, {FC} from 'react';
 import {Outlet} from "react-router-dom";
-import "../../assets/global.css";
+import '../../styles/global.scss'
 const Layout:FC = () => {
     return (
-        <div>
-            Header
+        <>
             <Outlet/>
-            Footer
-        </div>
+        </>
     );
 };
 
