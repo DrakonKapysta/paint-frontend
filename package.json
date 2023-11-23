@@ -11,6 +11,8 @@
     "@types/node": "^16.18.59",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
+    "mobx": "^6.11.0",
+    "mobx-react-lite": "^4.0.5",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
