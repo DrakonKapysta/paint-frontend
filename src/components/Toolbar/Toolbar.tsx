@@ -6,6 +6,8 @@ import canvasState from "../../store/canvasState";
 import Rect from "../../tools/Rect";
 import {observer} from "mobx-react-lite";
 import {Eraser} from "../../tools/Eraser";
+import Circle from "../../tools/Circle";
+import Line from "../../tools/Line";
 const Toolbar:FC = observer (() => {
     console.log("render tools")
 
@@ -18,9 +20,9 @@ const Toolbar:FC = observer (() => {
         <div className={styles.toolbar}>
             <div className={`${styles.toolbar__btn} ${styles.brush}`} onClick={()=>toolState.setTool(new Brush(canvasState.canvas!))}></div>
             <div className={`${styles.toolbar__btn} ${styles.rect}`} onClick={()=>toolState.setTool(new Rect(canvasState.canvas!))}></div>
-            <div className={`${styles.toolbar__btn} ${styles.circle}`} ></div>
+            <div className={`${styles.toolbar__btn} ${styles.circle}`} onClick={()=>toolState.setTool(new Circle(canvasState.canvas!))} ></div>
             <div className={`${styles.toolbar__btn} ${styles.eraser}`} onClick={()=>toolState.setTool(new Eraser(canvasState.canvas!))}></div>
-            <div className={`${styles.toolbar__btn} ${styles.line}`}></div>
+            <div className={`${styles.toolbar__btn} ${styles.line}`} onClick={()=>toolState.setTool(new Line(canvasState.canvas!))}></div>
             <input onChange={e=>changeColor(e)} className={styles.colors} type={'color'}/>
             <div className={`${styles.toolbar__btn} ${styles.undo}`}></div>
             <div className={`${styles.toolbar__btn} ${styles.redo}`}></div>

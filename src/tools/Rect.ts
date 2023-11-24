@@ -1,10 +1,10 @@
 import Tool from "./Tool";
 
 export default class Rect extends Tool{
-    private mouseDown: boolean = false;
-    private startX:number = 0;
-    private startY:number = 0;
-    private saved:string = '';
+    public mouseDown: boolean = false;
+    public startX:number = 0;
+    public startY:number = 0;
+    public saved:string = '';
     constructor(canvas:HTMLCanvasElement) {
         super(canvas);
         this.listen();
@@ -35,7 +35,7 @@ export default class Rect extends Tool{
             this.draw(this.startX, this.startY, width,height);
         }
     }
-    private draw(x:number, y:number, w:number, h:number){
+    public draw(x:number, y:number, w:number, h:number){
         const img = new Image();
         img.src = this.saved;
         img.onload = ()=>{

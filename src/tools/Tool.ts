@@ -26,4 +26,11 @@ export default class Tool{
         this.canvas.onmouseup = null;
         this.canvas.onmousedown = null;
     }
+
+    public getMouseCoordinates(e: MouseEvent){
+        return {
+            x: e.pageX - (e.target as HTMLElement).offsetLeft,
+            y: e.pageY - (e.target as HTMLElement).offsetTop
+        }
+    }
 }
