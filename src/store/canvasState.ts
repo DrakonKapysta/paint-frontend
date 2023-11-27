@@ -5,6 +5,10 @@ class CanvasState{
 
     public undoList:string[]  = [];
     public redoList:string[]  = [];
+    public username:string = "";
+    public setUsername(username:string){
+        this.username = username;
+    }
     constructor() {
         makeAutoObservable(this);
     }

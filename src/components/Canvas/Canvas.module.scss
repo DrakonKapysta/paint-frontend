@@ -10,3 +10,13 @@ canvas{
   border: 1px solid black;
   background-color: white;
 }
+.modal{
+  &__btn{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  &__input{
+    padding: 5px 5px;
+  }
+}
