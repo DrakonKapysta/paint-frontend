@@ -18,14 +18,19 @@ const Toolbar:FC = observer (() => {
 
     return (
         <div className={styles.toolbar}>
-            <div className={`${styles.toolbar__btn} ${styles.brush}`} onClick={()=>toolState.setTool(new Brush(canvasState.canvas!))}></div>
-            <div className={`${styles.toolbar__btn} ${styles.rect}`} onClick={()=>toolState.setTool(new Rect(canvasState.canvas!))}></div>
-            <div className={`${styles.toolbar__btn} ${styles.circle}`} onClick={()=>toolState.setTool(new Circle(canvasState.canvas!))} ></div>
-            <div className={`${styles.toolbar__btn} ${styles.eraser}`} onClick={()=>toolState.setTool(new Eraser(canvasState.canvas!))}></div>
-            <div className={`${styles.toolbar__btn} ${styles.line}`} onClick={()=>toolState.setTool(new Line(canvasState.canvas!))}></div>
+            <div className={`${styles.toolbar__btn} ${styles.brush}`}
+                 onClick={()=>toolState.setTool(new Brush(canvasState.canvas!))}></div>
+            <div className={`${styles.toolbar__btn} ${styles.rect}`}
+                 onClick={()=>toolState.setTool(new Rect(canvasState.canvas!))}></div>
+            <div className={`${styles.toolbar__btn} ${styles.circle}`}
+                 onClick={()=>toolState.setTool(new Circle(canvasState.canvas!))} ></div>
+            <div className={`${styles.toolbar__btn} ${styles.eraser}`}
+                 onClick={()=>toolState.setTool(new Eraser(canvasState.canvas!))}></div>
+            <div className={`${styles.toolbar__btn} ${styles.line}`}
+                 onClick={()=>toolState.setTool(new Line(canvasState.canvas!))}></div>
             <input onChange={e=>changeColor(e)} className={styles.colors} type={'color'}/>
-            <div className={`${styles.toolbar__btn} ${styles.undo}`}></div>
-            <div className={`${styles.toolbar__btn} ${styles.redo}`}></div>
+            <div className={`${styles.toolbar__btn} ${styles.undo}`} onClick={(e)=>canvasState.undo()}></div>
+            <div className={`${styles.toolbar__btn} ${styles.redo}`} onClick={(e)=>canvasState.redo()}></div>
             <div className={`${styles.toolbar__btn} ${styles.save}`}></div>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import PaintPage from "./components/pages/PaintPage";
 
@@ -13,8 +13,12 @@ const router = createBrowserRouter([
         element:<Layout/>,
         children:[
             {
-                path:'/',
+                path:'/:id',
                 element:<PaintPage/>
+            },
+            {
+                path:'/',
+                element:<Navigate to={`f${(+new Date()).toString(16)}`} replace />
             }
         ]
     },
