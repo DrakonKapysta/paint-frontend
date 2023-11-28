@@ -2,8 +2,8 @@ import Tool from "./Tool";
 
 export default class Brush extends Tool{
     private mouseDown: boolean = false;
-    constructor(canvas:HTMLCanvasElement) {
-        super(canvas);
+    constructor(canvas:HTMLCanvasElement, socket:WebSocket, id: string) {
+        super(canvas, socket, id);
         this.listen();
     }
     public listen(){
@@ -13,6 +13,13 @@ export default class Brush extends Tool{
     }
     public mouseUpHandler(e:MouseEvent){
         this.mouseDown = false;
+        this.socket.send(JSON.stringify({
+            method:"draw",
+            id: this.sessionId,
+            figure:{
+                type:"finish",
+            }
+        }))
     }
     public mouseDownHandler(e:MouseEvent){
         this.mouseDown = true;
@@ -23,12 +30,19 @@ export default class Brush extends Tool{
     }
     public mouseMoveHandler(e:MouseEvent){
         if(this.mouseDown && e.target instanceof HTMLCanvasElement){
-            this.draw(e.pageX - e.target.offsetLeft, e.pageY - e.target.offsetTop);
+            this.socket.send(JSON.stringify({
+                method:"draw",
+                id: this.sessionId,
+                figure:{
+                    type:"Brush",
+                    x: e.pageX - e.target.offsetLeft,
+                    y: e.pageY - e.target.offsetTop,
+                }
+            }))
         }
     }
-    public draw(x:number, y:number){
-        this.ctx?.lineTo(x,y);
-        this.ctx?.stroke();
+    public static draw(ctx:CanvasRenderingContext2D, x:number, y:number){
+        ctx?.lineTo(x,y);
+        ctx?.stroke();
     }
-
 }

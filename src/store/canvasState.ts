@@ -6,8 +6,17 @@ class CanvasState{
     public undoList:string[]  = [];
     public redoList:string[]  = [];
     public username:string = "";
+    public sessionId:string = "";
+    public socket: WebSocket | null = null;
+
     public setUsername(username:string){
         this.username = username;
+    }
+    public setSessionId(sessionId:string){
+        this.sessionId = sessionId;
+    }
+    public setSocket(socket:WebSocket){
+        this.socket = socket;
     }
     constructor() {
         makeAutoObservable(this);

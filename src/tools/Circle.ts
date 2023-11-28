@@ -1,8 +1,8 @@
 import Rect from "./Rect";
 
 export default class Circle extends Rect{
-    constructor(canvas:HTMLCanvasElement) {
-        super(canvas);
+    constructor(canvas:HTMLCanvasElement, socket:WebSocket, id:string) {
+        super(canvas, socket, id);
     }
     public mouseMoveHandler(e:MouseEvent){
         if(this.mouseDown && e.target instanceof HTMLCanvasElement){
