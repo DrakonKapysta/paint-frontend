@@ -2,7 +2,7 @@ import {makeAutoObservable} from "mobx";
 import Tool from "../tools/Tool";
 
 class ToolState{
-    private tool:Tool | null = null;
+    public tool:Tool | null = null;
     constructor() {
         makeAutoObservable(this);
     }

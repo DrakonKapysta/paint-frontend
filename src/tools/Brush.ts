@@ -1,7 +1,7 @@
 import Tool from "./Tool";
 
 export default class Brush extends Tool{
-    private mouseDown: boolean = false;
+    public mouseDown: boolean = false;
     constructor(canvas:HTMLCanvasElement, socket:WebSocket, id: string) {
         super(canvas, socket, id);
         this.listen();
@@ -35,13 +35,15 @@ export default class Brush extends Tool{
                 id: this.sessionId,
                 figure:{
                     type:"Brush",
+                    color:this.ctx?.strokeStyle,
                     x: e.pageX - e.target.offsetLeft,
                     y: e.pageY - e.target.offsetTop,
                 }
             }))
         }
     }
-    public static draw(ctx:CanvasRenderingContext2D, x:number, y:number){
+    public static draw(ctx:CanvasRenderingContext2D, x:number, y:number, color:string){
+        ctx.strokeStyle = color;
         ctx?.lineTo(x,y);
         ctx?.stroke();
     }

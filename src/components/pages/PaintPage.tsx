@@ -3,9 +3,7 @@ import styles from './PaintPage.module.scss';
 import Toolbar from "../Toolbar/Toolbar";
 import SettingBar from "../SettingBar/SettingBar";
 import Canvas from "../Canvas/Canvas";
-import {observer} from "mobx-react-lite";
-const PaintPage:FC = observer(() => {
-    console.log("Render paing page")
+const PaintPage:FC = () => {
     return (
         <div className={styles.wrapper}>
             <Toolbar/>
@@ -13,6 +11,6 @@ const PaintPage:FC = observer(() => {
             <Canvas/>
         </div>
     );
-});
+};
 
 export default PaintPage;

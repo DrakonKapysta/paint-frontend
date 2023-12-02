@@ -37,7 +37,9 @@ const Toolbar:FC = observer (() => {
             <div className={`${styles.toolbar__btn} ${styles.circle}`}
                  onClick={()=>toolState.setTool(new Circle(canvasState.canvas!,canvasState.socket!, canvasState.sessionId))} ></div>
             <div className={`${styles.toolbar__btn} ${styles.eraser}`}
-                 onClick={()=>toolState.setTool(new Eraser(canvasState.canvas!,canvasState.socket!, canvasState.sessionId))}></div>
+                 onClick={()=> {
+                     toolState.setTool(new Eraser(canvasState.canvas!, canvasState.socket!, canvasState.sessionId))
+                 }}></div>
             <div className={`${styles.toolbar__btn} ${styles.line}`}
                  onClick={()=>toolState.setTool(new Line(canvasState.canvas!,canvasState.socket!, canvasState.sessionId))}></div>
             <input onChange={e=>changeColor(e)} className={styles.colors} type={'color'}/>
